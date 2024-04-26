@@ -1,0 +1,20 @@
+{
+  parserClass="com.github.akdogan.androidstudiofastlaneplugin.language.parser.FastParser"
+
+  extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+  psiClassPrefix="Fast"
+  psiImplClassSuffix="Impl"
+  psiPackage="com.github.akdogan.androidstudiofastlaneplugin.language.psi"
+  psiImplPackage="com.github.akdogan.androidstudiofastlaneplugin.language.psi.impl"
+
+  elementTypeHolderClass="com.github.akdogan.androidstudiofastlaneplugin.language.psi.FastLaneTypes"
+  elementTypeClass="com.github.akdogan.androidstudiofastlaneplugin.language.psi.FastLaneElementType"
+  tokenTypeClass="com.github.akdogan.androidstudiofastlaneplugin.language.psi.FastLaneTokenType"
+}
+
+fastFile ::= item_*
+
+private item_ ::= (property|COMMENT|CRLF)
+
+property ::= (KEY? SEPARATOR VALUE?) | KEY
