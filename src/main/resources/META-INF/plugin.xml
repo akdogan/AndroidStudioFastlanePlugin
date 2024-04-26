@@ -9,10 +9,22 @@
     <resource-bundle>messages.MyBundle</resource-bundle>
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.akdogan.androidstudiofastlaneplugin.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
+        <toolWindow factoryClass="com.github.akdogan.androidstudiofastlaneplugin.toolWindow.MyToolWindowFactory"
+                    id="MyToolWindow"/>
+        <codeInsight.lineMarkerProvider
+                language=""
+                implementationClass="com.github.akdogan.androidstudiofastlaneplugin.linemarkers.LaneLineMarkerProvider"/>
+        <fileType name="FastFile"
+                  implementationClass="com.github.akdogan.androidstudiofastlaneplugin.language.FastLaneFileType"
+                  fieldName="INSTANCE"
+                  extensions="fast"/>
+        <lang.parserDefinition
+            language="FastLang"
+            implementationClass="com.github.akdogan.androidstudiofastlaneplugin.language.FastFileParserDefinition"/>
     </extensions>
 
     <applicationListeners>
-        <listener class="com.github.akdogan.androidstudiofastlaneplugin.listeners.MyApplicationActivationListener" topic="com.intellij.openapi.application.ApplicationActivationListener"/>
+        <listener class="com.github.akdogan.androidstudiofastlaneplugin.listeners.MyApplicationActivationListener"
+                  topic="com.intellij.openapi.application.ApplicationActivationListener"/>
     </applicationListeners>
 </idea-plugin>
